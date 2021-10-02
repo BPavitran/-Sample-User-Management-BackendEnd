@@ -1,0 +1,46 @@
+{
+  "name": "sample-user-management-backendend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec ts-node src/server.ts -e ts",
+    "seed": "ts-node src/seed/seed-runner",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BPavitran/-Sample-User-Management-BackendEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BPavitran/-Sample-User-Management-BackendEnd/issues"
+  },
+  "homepage": "https://github.com/BPavitran/-Sample-User-Management-BackendEnd#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8",
+    "nodemon": "^2.0.13",
+    "passport": "^0.4.0",
+    "passport-custom": "^1.1.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/passport": "^1.0.3",
+    "@types/passport-jwt": "^3.0.1",
+    "@types/passport-local": "^1.0.33",
+    "@types/passport-strategy": "^0.2.35"
+  }
+}
