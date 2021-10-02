@@ -41,4 +41,24 @@ export namespace UserDao {
             return returnBody;
         }
     }
+
+    export async function getAllUsers(): Promise<IUser[]> {
+        let users: IUser[] = await User.find();
+        return users;
+    }
+
+    export async function getUserById(userId : string): Promise<IUser> {
+        let user: IUser = await User.findById(userId);
+        return user;
+    }
+
+    export async function updateUser(userId : string, data : Partial<IUser>) {
+        const user = await User.findByIdAndUpdate(userId, {'$set': data});
+        const updatedUser = await getUserById(userId);
+        return updatedUser;
+    }
+
+    export async function deleteUser(userId : string) {
+        await User.deleteOne({_id : userId});
+    }
 }

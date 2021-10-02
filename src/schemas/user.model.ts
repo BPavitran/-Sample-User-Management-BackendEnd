@@ -30,10 +30,6 @@ export interface DUser extends CommonAttributes {
 }
 
 export interface IUser extends CommonAttributes, mongoose.Document {
-    userType: string;
-
-    //createAccessToken(): string;
-
     comparePassword(password: string): Promise<boolean>;
 }
 
