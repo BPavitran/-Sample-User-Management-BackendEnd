@@ -92,4 +92,43 @@ export namespace UserEp {
         }
     }
 
+    export async function createUsers(req: Request, res: Response, next: NextFunction) {
+        try {
+            let usersData : IUser[] = req.body.usersData;
+            const dbUsers = await UserDao.getAllUsers();
+            const dbUsersEmail = dbUsers.map(user => user.email);
+            usersData = usersData.filter(user => !dbUsersEmail.includes(user.email));
+            usersData = usersData.map(user => {
+                user.password = process.env.DEFAULT_PASSWORD;
+                return user;
+            })
+            const users = await UserDao.createUsers(usersData);
+            return Util.sendSuccess(res, users);
+        } 
+        catch (e) {
+            const errorMessage = "Something Wrong";
+            return Util.sendError(res, errorMessage);
+        }
+    }
+
+    export async function updateUsers(req: Request, res: Response, next: NextFunction) {
+        try {
+            let usersData : IUser[] = req.body.usersData;
+            const dbUsers = await UserDao.getAllUsers();
+            for(const dbUser of dbUsers){
+                const haveUserData = usersData.filter(user => user.email == dbUser.email)[0];
+                if(haveUserData){
+                    const userId = dbUser.id;
+                    await UserDao.updateUser(userId, haveUserData);
+                }
+            }
+            const users = await UserDao.getAllUsers();
+            return Util.sendSuccess(res, users);
+        } 
+        catch (e) {
+            const errorMessage = "Something Wrong";
+            return Util.sendError(res, errorMessage);
+        }
+    }
+
 }

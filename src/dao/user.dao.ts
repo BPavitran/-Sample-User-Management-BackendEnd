@@ -53,12 +53,18 @@ export namespace UserDao {
     }
 
     export async function updateUser(userId : string, data : Partial<IUser>) {
-        const user = await User.findByIdAndUpdate(userId, {'$set': data});
+        await User.findByIdAndUpdate(userId, {'$set': data});
         const updatedUser = await getUserById(userId);
         return updatedUser;
     }
 
     export async function deleteUser(userId : string) {
         await User.deleteOne({_id : userId});
+    }
+
+    export async function createUsers(usersData : DUser[]) {
+        await User.insertMany(usersData);
+        const updatedUsers = await getAllUsers();
+        return updatedUsers;
     }
 }

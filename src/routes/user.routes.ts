@@ -10,4 +10,7 @@ export function initUserRoutes(app: Express) {
     app.post('/api/create/user', UserEp.createUser);
     app.post('/api/update/user', UserEp.updateUser);
     app.post('/api/delete/user', UserEp.deleteUser);
+
+    app.post('/api/create-bulk/user', UserEp.createUsers);
+    app.post('/api/update-bulk/user', UserEp.updateUsers);
 }
