@@ -12,3 +12,7 @@
     User (Super Admin)
     email: admin@xyz.com
     password: 111111
+
+### Example Excel Sheet
+
+Inside `sample-excel-files` there are 2 same excel file with different format (.xls, .xlsx)
