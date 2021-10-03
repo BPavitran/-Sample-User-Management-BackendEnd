@@ -7,7 +7,7 @@
 03. Run `npm run seed` to run seed.
 04. Run `npm run start` to start development server with auto refresh on changes.
 
-### Initial Users
+### Initial User
 
     User (Super Admin)
     email: admin@xyz.com
