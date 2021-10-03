@@ -15,4 +15,4 @@
 
 ### Example Excel Sheet
 
-Inside `sample-excel-files` folder, there are 2 sample excel file with same data but different format (.xls, .xlsx)
+Inside `sample-excel-files` folder, there are 2 sample excels file with same data but different format (.xls, .xlsx)
